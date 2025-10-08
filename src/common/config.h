@@ -167,6 +167,9 @@
 #	define LOVE_ENABLE_LUA53
 #	define LOVE_ENABLE_LUAHTTPS
 #endif
+#ifdef LOVE_ANDROID
+#   undef LOVE_ENABLE_LUAHTTPS // We provide it in love-android
+#endif
 
 // Check we have a sane configuration
 #if !defined(LOVE_WINDOWS) && !defined(LOVE_LINUX) && !defined(LOVE_IOS) && !defined(LOVE_MACOSX) && !defined(LOVE_ANDROID)
