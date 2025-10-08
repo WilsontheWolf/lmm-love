@@ -159,6 +159,10 @@ static DoneAction runlove(int argc, char **argv, int &retval)
 		return DONE_QUIT;
 	}
 
+	{
+		std::string env = std::string("LOVELY_MOD_DIR=") + love::ios::getHomeDirectory() + "/Documents/game/Mods";
+		putenv(strdup(env.c_str()));
+	}
 	// Create the virtual machine.
 	lua_State *L = luaL_newstate();
 	luaL_openlibs(L);

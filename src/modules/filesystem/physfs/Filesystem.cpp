@@ -558,7 +558,7 @@ std::string Filesystem::getAppdataDirectory()
 		udir.append("/Library/Application Support");
 		appdata = normalize(udir);
 #elif defined(LOVE_IOS)
-		appdata = normalize(love::ios::getAppdataDirectory());
+		appdata = normalize(Filesystem::getUserDirectory() + "/Documents/");
 #elif defined(LOVE_LINUX)
 		char *xdgdatahome = getenv("XDG_DATA_HOME");
 		if (!xdgdatahome)
