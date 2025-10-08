@@ -3210,6 +3210,14 @@ function love.nogame()
 		}
 
 		create_world()
+
+		local succ, lovely = pcall(require, "lovely")
+		if succ then lovely = lovely.version end
+		local succ2, https = pcall(require, "https")
+		if succ2 then https = "Present" end
+		lmm_info = "Lovely Mobile Maker\nLovely: " .. lovely .. 
+		"\nHTTPS: " .. https ..
+		"\nPlatform: " .. love.system.getOS()
 	end
 
 	function love.update(dt)
@@ -3244,6 +3252,8 @@ function love.nogame()
 			love.graphics.print("Frame: " .. g_frame_count, 50, 95)
 			love.graphics.print("Step: " .. g_step_count, 50, 110)
 		end
+		love.graphics.setColor(1, 0, 0, 1)
+		love.graphics.print(lmm_info, 10, 10)
 
 		g_frame_count = g_frame_count + 1
 	end
