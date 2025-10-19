@@ -3214,13 +3214,13 @@ function love.nogame()
 		local succ, lovely = pcall(require, "lovely")
 		if succ then lovely = lovely.version end
 		local succ2, https = pcall(require, "https")
-		if succ2 then 
+		if succ2 then
 		   local code, body = https.request("https://shorty.systems/lmm-test")
-		   https = "Present" .. "\n  " .. code .."\n  " .. body
+		   https = "Present" .. "\n  " .. tostring(code) .."\n  " .. tostring(body)
 		end
-		lmm_info = "Lovely Mobile Maker\nLovely: " .. lovely .. 
-		"\nHTTPS: " .. https ..
-		"\nPlatform: " .. love.system.getOS()
+		lmm_info = "Lovely Mobile Maker\nLovely: " .. lovely ..
+		"\nPlatform: " .. love.system.getOS() ..
+		"\nHTTPS: " .. https
 	end
 
 	function love.update(dt)
