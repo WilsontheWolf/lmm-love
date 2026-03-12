@@ -432,9 +432,9 @@ int luaopen_love(lua_State *L)
 	lua_pushstring(L, love::VERSION_CODENAME);
 	lua_setfield(L, -2, "_version_codename");
 
-#ifdef LOVE_ANDROID
-	lua_register(L, "print", w_print_sdl_log);
-#endif
+// #ifdef LOVE_ANDROID
+// 	lua_register(L, "print", w_print_sdl_log);
+// #endif
 
 #ifdef LOVE_LEGENDARY_CONSOLE_IO_HACK
 	lua_pushcfunction(L, w__openConsole);
